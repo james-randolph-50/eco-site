@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Eco-Site",
-  description: "NextJS site for fictional eco-focused company",
+  title: "NextJS Marketing website template",
+  description: "NextJS boilerplate for marketing websites",
 };
 
 export default function RootLayout({
