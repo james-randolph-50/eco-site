@@ -4,7 +4,6 @@ import * as React from "react"
 import Link from "next/link"
 
 import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,6 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { Button } from "./ui/button"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -56,13 +56,78 @@ const components: { title: string; href: string; description: string }[] = [
 export function NavBar() {
   return (
     <NavigationMenu>
-      <NavigationMenuList>          
+      <NavigationMenuList>   
+      <NavigationMenuItem>
+          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <a
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    href="/"
+                  >
+                    <div className="mb-2 mt-4 text-lg font-medium">
+                      Hero Product
+                    </div>
+                    <p className="text-sm leading-tight text-muted-foreground">
+                      Best-selling item.
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <ListItem href="/docs" title="Product A">
+                Helpful product.
+              </ListItem>
+              <ListItem href="/docs/installation" title="Product B">
+                Increase productivity.
+              </ListItem>
+              <ListItem href="/docs/primitives/typography" title="Product C">
+                Help your team.
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>       
+      <NavigationMenuItem>
+          <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <a
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    href="/"
+                  >
+                    <div className="mb-2 mt-4 text-lg font-medium">
+                      Featured Service
+                    </div>
+                    <p className="text-sm leading-tight text-muted-foreground">
+                      Quick-start
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <ListItem href="/docs" title="Service A">
+                Helpful product.
+              </ListItem>
+              <ListItem href="/docs/installation" title="Service B">
+                Wow your customers
+              </ListItem>
+              <ListItem href="/docs/primitives/typography" title="Service C">
+                Deliver faster.
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>       
         <NavigationMenuItem>
           <Link href="/community" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Community
+              About
             </NavigationMenuLink>
           </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Button>Contact Us</Button>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
